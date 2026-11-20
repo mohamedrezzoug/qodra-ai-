@@ -1,0 +1,12 @@
+{
+  "name": "QODRA — قدراتك بلا حدود",
+  "short_name": "QODRA",
+  "description": "Unlock your human potential",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0c1020",
+  "theme_color": "#101326",
+  "icons": [{"src":"icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

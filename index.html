@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101326">
+  <meta name="description" content="QODRA - Unlock your human potential">
+  <title>QODRA — قدراتك بلا حدود</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="QODRA Home">
+        <span class="brand-mark">Q</span>
+        <span><b>QODRA</b><small>قدراتك بلا حدود</small></span>
+      </a>
+      <button class="icon-btn" id="langBtn" aria-label="Change language">ع / EN</button>
+    </header>
+
+    <main>
+      <section class="hero panel">
+        <div class="hero-glow"></div>
+        <div class="eyebrow"><span class="live-dot"></span><span data-i18n="welcomeTag">مساحة نموّك الشخصي</span></div>
+        <h1 data-i18n="heroTitle">كل إنسان عندو قدرة يقدر يطوّرها.</h1>
+        <p data-i18n="heroText">اكتشف إمكانياتك، تعلّم مهارات جديدة، وحوّل أفكارك إلى خطوات عملية.</p>
+        <button class="primary-btn" data-go="assistant" data-i18n="startBtn">ابدأ مع QODRA AI <span>←</span></button>
+        <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+      </section>
+
+      <section class="section-head">
+        <div><span class="eyebrow" data-i18n="yourSpace">مساحتك</span><h2 data-i18n="dashboard">لوحة التطور</h2></div>
+        <span class="date-chip" id="todayLabel"></span>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card"><span class="stat-icon">🎯</span><strong id="goalCount">0</strong><small data-i18n="activeGoals">أهداف نشيطة</small></article>
+        <article class="stat-card"><span class="stat-icon">⚡</span><strong id="doneCount">0</strong><small data-i18n="completedGoals">أهداف مكتملة</small></article>
+        <article class="stat-card"><span class="stat-icon">🌱</span><strong id="dayCount">1</strong><small data-i18n="yourJourney">يوم في رحلتك</small></article>
+      </section>
+
+      <section class="section-head"><div><span class="eyebrow" data-i18n="explore">استكشف</span><h2 data-i18n="toolsTitle">أدوات QODRA</h2></div></section>
+      <section class="tools-grid">
+        <button class="tool-card" data-go="assistant"><span class="tool-icon purple">✦</span><b>QODRA AI</b><small data-i18n="aiDesc">مساعدك للتفكير والتخطيط</small><span class="card-arrow">↙</span></button>
+        <button class="tool-card" data-go="learn"><span class="tool-icon blue">▤</span><b data-i18n="learnTitle">تعلّم</b><small data-i18n="learnDesc">طوّر مهارة جديدة</small><span class="card-arrow">↙</span></button>
+        <button class="tool-card" data-go="goals"><span class="tool-icon orange">◎</span><b data-i18n="goalsTitle">أهدافي</b><small data-i18n="goalsDesc">حوّل الطموح إلى عمل</small><span class="card-arrow">↙</span></button>
+        <button class="tool-card" data-go="discover"><span class="tool-icon green">✧</span><b data-i18n="discoverTitle">اكتشف قدراتك</b><small data-i18n="discoverDesc">اعرف نقاط قوتك</small><span class="card-arrow">↙</span></button>
+      </section>
+
+      <section class="quote-card">
+        <span>✦</span><p data-i18n="quote">التغيير الكبير يبدأ بخطوة صغيرة، واليوم فرصة جديدة للبداية.</p>
+        <small>— QODRA</small>
+      </section>
+    </main>
+
+    <section class="view hidden" id="assistantView">
+      <div class="view-heading"><button class="back-btn" data-go="home">→</button><div><span class="eyebrow">QODRA</span><h2 data-i18n="assistantTitle">المساعد الذكي</h2></div></div>
+      <div class="notice">ℹ️ <span data-i18n="demoNotice">هذه نسخة تجريبية: الردود الحالية محلية وليست اتصالاً مباشراً بنموذج AI.</span></div>
+      <div class="chat-box" id="chatBox"><div class="message bot" data-i18n="helloMsg">مرحبا! أنا QODRA. شنو بغيتي تطوّر أو تحقق اليوم؟</div></div>
+      <form class="chat-form" id="chatForm"><input id="chatInput" autocomplete="off" placeholder="كتب سؤالك هنا..." required><button class="send-btn" aria-label="Send">➤</button></form>
+    </section>
+
+    <section class="view hidden" id="goalsView">
+      <div class="view-heading"><button class="back-btn" data-go="home">→</button><div><span class="eyebrow">QODRA</span><h2 data-i18n="myGoals">أهدافي</h2></div></div>
+      <p class="muted" data-i18n="goalsIntro">كتب هدف صغير وخدم عليه خطوة بخطوة.</p>
+      <form id="goalForm" class="goal-form"><input id="goalInput" placeholder="مثلاً: نتعلم الإنجليزية" required><button class="primary-btn" data-i18n="addGoal">+ أضف هدف</button></form>
+      <div id="goalList" class="goal-list"></div>
+    </section>
+
+    <section class="view hidden" id="learnView">
+      <div class="view-heading"><button class="back-btn" data-go="home">→</button><div><span class="eyebrow">QODRA</span><h2 data-i18n="learningPath">مسارات التعلم</h2></div></div>
+      <p class="muted" data-i18n="learnIntro">اختار مجالاً وابدأ بخطوة بسيطة.</p>
+      <div class="learning-list">
+        <article class="learning-card"><span>🌍</span><div><b data-i18n="languageSkill">تعلم اللغات</b><small data-i18n="languageDetail">10 دقائق يومياً لبناء عادة جديدة</small></div><span class="level">01</span></article>
+        <article class="learning-card"><span>💻</span><div><b data-i18n="digitalSkill">المهارات الرقمية</b><small data-i18n="digitalDetail">ابدأ بأساسيات الحاسوب والإنترنت</small></div><span class="level">02</span></article>
+        <article class="learning-card"><span>🧠</span><div><b data-i18n="thinkingSkill">التفكير وحل المشاكل</b><small data-i18n="thinkingDetail">تعلّم تقسيم المشكلة إلى خطوات</small></div><span class="level">03</span></article>
+        <article class="learning-card"><span>🚀</span><div><b data-i18n="projectSkill">إنشاء المشاريع</b><small data-i18n="projectDetail">حوّل فكرة إلى نموذج أولي</small></div><span class="level">04</span></article>
+      </div>
+    </section>
+
+    <section class="view hidden" id="discoverView">
+      <div class="view-heading"><button class="back-btn" data-go="home">→</button><div><span class="eyebrow">QODRA</span><h2 data-i18n="discoverTitle">اكتشف قدراتك</h2></div></div>
+      <div class="discover-card"><div class="big-symbol">✧</div><h3 data-i18n="discoverPrompt">شنو الحاجة اللي كتستمتع تديرها؟</h3><p data-i18n="discoverText">جاوب على أسئلة بسيطة باش تبدا تلاحظ المجالات اللي كتشد اهتمامك. ما كاينش جواب صحيح أو خاطئ.</p><textarea id="strengthInput" rows="4" placeholder="كنستمتع بـ..."></textarea><button class="primary-btn" id="strengthBtn" data-i18n="saveReflection">حفظ التأمل</button><p class="saved-msg" id="savedMsg"></p></div>
+    </section>
+  </div>
+
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-go="home"><span>⌂</span><small data-i18n="home">الرئيسية</small></button>
+    <button class="nav-item" data-go="learn"><span>▤</span><small data-i18n="learnTitle">تعلّم</small></button>
+    <button class="nav-item nav-center" data-go="assistant"><span>✦</span><small>QODRA AI</small></button>
+    <button class="nav-item" data-go="goals"><span>◎</span><small data-i18n="goalsTitle">أهدافي</small></button>
+    <button class="nav-item" data-go="discover"><span>✧</span><small data-i18n="discoverShort">اكتشف</small></button>
+  </nav>
+  <script src="app.js"></script>
+</body>
+</html>
